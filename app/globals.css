@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: #fcfcfc;
+  color: #111111;
+  overflow-x: hidden;
+}
+
+/* MacBook Full Screen Layout for Enter Name & Room Menu */
+.macbook-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fcfcfc;
+  padding: 0 10vw;
+  z-index: 100;
+}
+
+.left-pane {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.right-pane {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Lobby player list — right-pane left-aligned */
+.right-pane.player-list {
+  justify-content: flex-start;
+  padding-left: 1rem;
+}
+
+@media (max-width: 800px) {
+  .macbook-screen {
+    flex-direction: column;
+    justify-content: center;
+    gap: 2.5rem;
+    padding: 2rem;
+  }
+}
+
+.name-input-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.name-input {
+  background: #ffffff;
+  border: 1px solid #e3e3e7;
+  border-radius: 9999px;
+  padding: 0.8rem 1.6rem;
+  font-size: 0.95rem;
+  color: #111;
+  outline: none;
+  width: 240px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.name-input::placeholder {
+  color: #9999a3;
+}
+
+.name-input:focus {
+  border-color: #000;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08);
+}
+
+/* Pill Buttons */
+.save-btn, .btn-black-pill {
+  background: #000000;
+  color: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 9999px;
+  padding: 0.8rem 2.2rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+  white-space: nowrap;
+}
+
+.save-btn:hover, .btn-black-pill:hover {
+  background: #222222;
+  border-color: #222222;
+}
+
+.btn-white-pill {
+  background: #ffffff;
+  color: #111111;
+  border: 1px solid #d0d0d5;
+  border-radius: 9999px;
+  padding: 0.8rem 2.2rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  white-space: nowrap;
+}
+
+.btn-white-pill:hover {
+  background: #f4f4f7;
+  border-color: #111111;
+}
+
+/* Create Room Grid UI (Matching Image 1) */
+.create-room-grid {
+  display: grid;
+  grid-template-columns: 180px 180px;
+  gap: 1.25rem 1.5rem;
+  align-items: end;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.field-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #666666;
+  margin-bottom: 0.45rem;
+  display: block;
+}
+
+.select-container {
+  position: relative;
+  width: 100%;
+}
+
+.select-container select {
+  width: 100%;
+  height: 44px;
+  background: #ffffff;
+  border: 1px solid #e3e3e7;
+  border-radius: 12px;
+  padding: 0 2.2rem 0 1.1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #111111;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.select-container select:focus {
+  border-color: #000000;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.06);
+}
+
+.select-container::after {
+  content: '';
+  position: absolute;
+  right: 1.1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid #111111;
+  pointer-events: none;
+}
+
+/* Card / Box Layouts for Room Setup & Lobby */
+.card {
+  background: #ffffff;
+  border: 1px solid #e5e5e8;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  width: 100%;
+  max-width: 480px;
+}
+
+.btn-secondary {
+  background: #f0f0f4;
+  color: #111;
+  border: none;
+  border-radius: 9999px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-secondary:hover {
+  background: #e2e2e8;
+}
+
+/* Game Arena Canvas styling */
+.arena-container {
+  position: relative;
+  width: 100%;
+  max-width: 650px;
+  aspect-ratio: 1;
+  background: #ffffff;
+  border: 2px solid #111;
+  border-radius: 0;
+  box-shadow: 0 0 3.7px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  touch-action: none;
+}
+
+.arena-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
